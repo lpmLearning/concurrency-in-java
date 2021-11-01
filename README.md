@@ -3,4 +3,5 @@ Learning about concurrency in Java based on [java-the-complete-java-developer-co
 
 Contents 
 
+- Join and Interruption
 - Syncronization 

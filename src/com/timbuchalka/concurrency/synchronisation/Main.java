@@ -1,5 +1,7 @@
 package com.timbuchalka.concurrency.synchronisation;
 
+import com.timbuchalka.concurrency.ThreadColor;
+
 public class Main {
 
     public static void main(String[] args) {

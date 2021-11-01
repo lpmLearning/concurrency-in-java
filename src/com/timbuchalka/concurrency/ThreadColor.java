@@ -1,4 +1,4 @@
-package com.timbuchalka.concurrency.synchronisation;
+package com.timbuchalka.concurrency;
 
 /**
  * Created by timbuchalka on 15/06/2016.
