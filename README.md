@@ -5,3 +5,4 @@ Contents
 
 - Join and Interruption
 - Syncronization 
+- Deadlock, wait, notify, notifyAll 
