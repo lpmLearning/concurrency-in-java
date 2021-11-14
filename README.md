@@ -4,5 +4,6 @@ Learning about concurrency in Java based on [java-the-complete-java-developer-co
 Contents 
 
 - Join and Interruption
-- Syncronization 
-- Deadlock, wait, notify, notifyAll 
+- Synchronization 
+- Deadlock, wait, notify, notifyAll
+- Thread interference (with synchronised and reentrance lock) 
