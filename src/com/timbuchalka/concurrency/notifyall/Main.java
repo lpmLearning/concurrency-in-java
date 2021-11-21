@@ -1,4 +1,4 @@
-package com.timbuchalka.concurrency.deadlock;
+package com.timbuchalka.concurrency.notifyall;
 
 import java.time.Instant;
 import java.util.Random;
