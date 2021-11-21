@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Main {
+public class SynchronizedMain {
     public static final String EOF = "EOF";
 
     public static void main(String[] args) {
@@ -49,8 +49,8 @@ class MyProducer implements  Runnable {
                  * - The 'synchronized' block must be within the same method and can't end on another.
                  * - Can't find information about the locks or perform a timeout when lock is not acquired within a period of time.
                  * - If multiple threads are waiting to get a lock, it's not a first come first service.
-                 * JVM doesn't follow an order to choose which thread should get the lock, which means that
                  * The first thread to ask for a lock could be the last to obtain it.
+                 * JVM doesn't follow an order to choose which thread should get the lock, which means that
                  */
                 synchronized(buffer) {
                     buffer.add(num);
@@ -93,7 +93,7 @@ class MyConsumer implements Runnable {
                 if(buffer.isEmpty()) {
                     continue;
                 }
-                if(buffer.get(0).equals(Main.EOF)) {
+                if(buffer.get(0).equals(SynchronizedMain.EOF)) {
                     System.out.println(color + "Exiting");
                     break;
                 } else {

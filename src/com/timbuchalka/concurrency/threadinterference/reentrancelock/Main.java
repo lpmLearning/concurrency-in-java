@@ -1,6 +1,7 @@
 package com.timbuchalka.concurrency.threadinterference.reentrancelock;
 
 import com.timbuchalka.concurrency.ThreadColor;
+import com.timbuchalka.concurrency.threadinterference.SynchronizedMain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,10 @@ public class Main {
 
     public static void main(String[] args) {
         List<String> buffer = new ArrayList<String>();
-        ReentrantLock bufferLock = new ReentrantLock();
+        // A fair lock takes the waiting time of the threads into account when choosing the next thread that passes
+        // the barrier to some exclusive resource.
+        // If the constructor with the boolean flag set to true is used, the ReentrantLock grants access to the longest-waiting thread.
+        ReentrantLock bufferLock = new ReentrantLock(true);
         MyProducer producer = new MyProducer(buffer, ThreadColor.ANSI_YELLOW, bufferLock);
         MyConsumer consumer1 = new MyConsumer(buffer, ThreadColor.ANSI_PURPLE, bufferLock);
         MyConsumer consumer2 = new MyConsumer(buffer, ThreadColor.ANSI_CYAN, bufferLock);
@@ -28,6 +32,15 @@ class MyProducer implements Runnable {
 
     private List<String> buffer;
     private String color;
+    /**
+     * Prevents thread interference but unlike synchronized it allows to have more control over the threads
+     * by having extended capabilities.
+     *
+     * Drawbacks:
+     * - Must explicitly invoke lock and unlock to either obtain the lock or release it.
+     *
+     * @see SynchronizedMain #run line 55 about 'synchronized'.
+     */
     private ReentrantLock bufferLock;
 
     public MyProducer(List<String> buffer, String color, ReentrantLock bufferLock) {

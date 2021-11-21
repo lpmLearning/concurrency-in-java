@@ -1,4 +1,4 @@
-package com.timbuchalka.concurrency.synchronisation;
+package com.timbuchalka.concurrency.synchronization;
 
 import com.timbuchalka.concurrency.ThreadColor;
 
